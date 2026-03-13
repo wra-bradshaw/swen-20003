@@ -4,4 +4,4 @@ default:
 	@just --list
 
 new name:
-	new-project "{{name}}"
+	bash ./scripts/new-project.sh "{{name}}"
