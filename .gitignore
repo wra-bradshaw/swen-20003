@@ -1,0 +1,9 @@
+.git
+result
+.direnv
+.DS_Store
+target
+.idea
+.classpath
+.project
+.settings
