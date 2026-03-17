@@ -69,6 +69,7 @@
               pkgs.just
               pkgs.jq
               pkgs.maven
+              pkgs.cookiecutter
             ];
             buildInputs = [ pkgs.maven ];
           };

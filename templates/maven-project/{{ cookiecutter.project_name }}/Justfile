@@ -1,0 +1,13 @@
+set shell := ["bash", "-eu", "-o", "pipefail", "-c"]
+
+default:
+    @just --list
+
+run:
+    mvn compile exec:java -Dexec.mainClass="{{ cookiecutter.package_name }}.{{ cookiecutter.main_class }}"
+
+debug:
+    mvnDebug compile exec:java -Dexec.mainClass="{{ cookiecutter.package_name }}.{{ cookiecutter.main_class }}"
+
+test:
+    mvn test

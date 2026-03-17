@@ -11,35 +11,37 @@ root_directory="$(git rev-parse --show-toplevel)"
 projects_directory="$root_directory/projects"
 directory="$projects_directory/$name"
 manifest_path="$root_directory/manifest.json"
+template_directory="$root_directory/templates/maven-project"
+package_segment="$(printf '%s' "$name" | tr '[:upper:]' '[:lower:]' | tr '-' '_' | tr -cd '[:alnum:]_')"
+
+if [ -z "$package_segment" ]; then
+	printf "Error: Project '%s' does not produce a valid Java package segment.\n" "$name" >&2
+	exit 1
+fi
+
+case "$package_segment" in
+[0-9]*)
+	package_segment="project_$package_segment"
+	;;
+esac
+
+package_name="org.example.$package_segment"
 
 if [ -e "$directory" ]; then
 	printf "Error: Project '%s' already exists.\n" "$name" >&2
 	exit 1
 fi
 
-mvn --batch-mode archetype:generate \
-	-DarchetypeGroupId=org.apache.maven.archetypes \
-	-DarchetypeArtifactId=maven-archetype-quickstart \
-	-DarchetypeVersion=1.5 \
-	-DgroupId=org.example \
-	-DartifactId="$name" \
-	-Dversion=1.0-SNAPSHOT \
-	-Dpackage="org.example.$name" \
-	-DinteractiveMode=false \
-	-DoutputDirectory="$projects_directory"
-
-printf '%s\n' \
-	"set shell := [\"bash\", \"-eu\", \"-o\", \"pipefail\", \"-c\"]" \
-	"" \
-	"default:" \
-	"    @just --list" \
-	"" \
-	"run:" \
-	"    mvn compile exec:java -Dexec.mainClass=\"org.example.$name.App\"" \
-	"" \
-	"test:" \
-	"    mvn test" \
-	>"$directory/Justfile"
+cookiecutter \
+	--no-input \
+	--output-dir "$projects_directory" \
+	"$template_directory" \
+	project_name="$name" \
+	artifact_id="$name" \
+	group_id="org.example" \
+	version="1.0-SNAPSHOT" \
+	package_name="$package_name" \
+	main_class="App"
 
 temp_manifest="$(mktemp)"
 
