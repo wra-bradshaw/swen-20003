@@ -1,0 +1,9 @@
+{
+  "project_name": "example-project",
+  "artifact_id": "{{ cookiecutter.project_name }}",
+  "group_id": "org.example",
+  "version": "1.0-SNAPSHOT",
+  "package_name": "{{ cookiecutter.group_id }}.{{ cookiecutter.artifact_id }}",
+  "package_path": "{{ cookiecutter.package_name.replace('.', '/') }}",
+  "main_class": "App"
+}

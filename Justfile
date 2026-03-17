@@ -5,3 +5,6 @@ default:
 
 new name:
 	bash ./scripts/new-project.sh "{{name}}"
+
+new-bagel name:
+	bash ./scripts/new-project.sh bagel "{{name}}"

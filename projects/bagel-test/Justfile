@@ -1,0 +1,18 @@
+set shell := ["bash", "-eu", "-o", "pipefail", "-c"]
+
+main_class := "org.example.bagel_test.App"
+classpath_file := "target/run.classpath"
+
+default:
+    @just --list
+
+run:
+    mvn -q -DskipTests compile dependency:build-classpath -Dmdep.outputFile={{classpath_file}}
+    java -XstartOnFirstThread -cp "target/classes:$(<{{classpath_file}})" {{main_class}}
+
+debug:
+    mvn -q -DskipTests compile dependency:build-classpath -Dmdep.outputFile={{classpath_file}}
+    java -XstartOnFirstThread -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005 -cp "target/classes:$(<{{classpath_file}})" {{main_class}}
+
+test:
+    mvn test
