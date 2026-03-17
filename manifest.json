@@ -8,5 +8,15 @@
     "name": "tute1",
     "version": "1.0-SNAPSHOT",
     "mvnHash": "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+  },
+  {
+    "name": "tute2",
+    "version": "1.0-SNAPSHOT",
+    "mvnHash": "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+  },
+  {
+    "name": "lecw3",
+    "version": "1.0-SNAPSHOT",
+    "mvnHash": "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
   }
 ]
