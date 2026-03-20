@@ -43,7 +43,7 @@ public class Library {
     StringBuilder builder = new StringBuilder();
 
     for (int i = 0; i < this.length; i++) {
-      builder.append(this.books[i]);
+      builder.append(this.books[i].toString() + "\n");
     }
 
     return builder.toString();
