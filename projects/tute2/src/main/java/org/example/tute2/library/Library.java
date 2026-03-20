@@ -39,6 +39,16 @@ public class Library {
     return Optional.empty();
   }
 
+  public Optional<Book> lookup(String title, String author) {
+    for (int i = 0; i < this.length; i++) {
+      if (this.books[i].getTitle().equals(title) && this.books[i].getAuthor().equals(author)) {
+        return Optional.ofNullable(this.books[i]);
+      }
+    }
+
+    return Optional.empty();
+  }
+
   public String getCatalogue() {
     StringBuilder builder = new StringBuilder();
 
