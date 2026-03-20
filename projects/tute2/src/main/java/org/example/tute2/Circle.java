@@ -1,8 +1,5 @@
 package org.example.tute2;
 
-// I used gemini to answer some questions I had while writing this
-// https://gemini.google.com/share/9dad6d982ba6
-
 public class Circle {
   private double radius;
   private double x;
