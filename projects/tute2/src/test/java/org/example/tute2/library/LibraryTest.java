@@ -50,4 +50,38 @@ public class LibraryTest {
         },
         "Adding 11 books should throw");
   }
+
+  @Test
+  void libraryCatalogue() {
+    Library library = new Library();
+    Book book = new Book("goof book", "guy barnett");
+
+    assertDoesNotThrow(
+        () -> {
+          library.addBook(book);
+          library.addBook(book);
+          library.addBook(book);
+          library.addBook(book);
+          library.addBook(book);
+          library.addBook(book);
+          library.addBook(book);
+          library.addBook(book);
+          library.addBook(book);
+          library.addBook(book);
+        },
+        "Adding 10 books should not throw");
+
+    assertEquals(
+        library.getCatalogue(),
+        "Book{ author: goof book, title: guy barnett, status: NOT_BORROWED }\n".repeat(10));
+
+    assertDoesNotThrow(
+        () -> library.borrowBook(book, "anthony albanese"), "Non borrowed book shouldn't throw");
+
+    assertEquals(
+        library.getCatalogue(),
+        "Book{ author: goof book, title: guy barnett, status: BORROWED }\n".repeat(10));
+
+    System.out.println(library.getCatalogue());
+  }
 }
