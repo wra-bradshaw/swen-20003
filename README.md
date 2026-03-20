@@ -1,6 +1,6 @@
 # SWEN 20003
 
-Use the Nix flake to enter the dev shell:
+Use direnv or the Nix flake to enter the dev shell:
 
 ```sh
 nix develop
