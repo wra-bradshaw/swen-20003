@@ -25,7 +25,11 @@
     "mvnHash": "sha256-rTnaMGyuH8/uJ8jh/J/td1Ynx6wKh+iePR0Cz49jNPk="
   },
   {
+    "name": "tute3",
     "version": "1.0-SNAPSHOT",
+    "mvnHash": "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+  },
+  {
     "name": "lecw4",
     "version": "1.0-SNAPSHOT",
     "mvnHash": "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="

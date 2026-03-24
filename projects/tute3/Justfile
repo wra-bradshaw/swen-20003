@@ -1,0 +1,13 @@
+set shell := ["bash", "-eu", "-o", "pipefail", "-c"]
+
+default:
+    @just --list
+
+run:
+    mvn compile exec:java -Dexec.mainClass="org.example.tute3.App"
+
+debug:
+    mvnDebug compile exec:java -Dexec.mainClass="org.example.tute3.App"
+
+test:
+    mvn test
