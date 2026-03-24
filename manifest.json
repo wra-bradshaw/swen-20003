@@ -23,5 +23,11 @@
     "name": "bagel-test",
     "version": "1.0-SNAPSHOT",
     "mvnHash": "sha256-rTnaMGyuH8/uJ8jh/J/td1Ynx6wKh+iePR0Cz49jNPk="
+  },
+  {
+    "version": "1.0-SNAPSHOT",
+    "name": "lecw4",
+    "version": "1.0-SNAPSHOT",
+    "mvnHash": "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
   }
 ]
